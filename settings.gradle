@@ -1,0 +1,6 @@
+rootProject.name = 'vrmsMicroservices'
+include 'api-gateway'
+include 'cars-service'
+include 'owners-service'
+include 'agents-service'
+include 'registration-service' 
