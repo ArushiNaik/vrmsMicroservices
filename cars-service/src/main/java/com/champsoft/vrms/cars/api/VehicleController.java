@@ -1,9 +1,11 @@
 package com.champsoft.vrms.cars.api;
 
+
 import com.champsoft.vrms.cars.api.dto.CreateVehicleRequest;
 import com.champsoft.vrms.cars.api.dto.UpdateVehicleRequest;
 import com.champsoft.vrms.cars.api.mapper.VehicleApiMapper;
 import com.champsoft.vrms.cars.application.service.VehicleCrudService;
+import com.champsoft.vrms.cars.application.service.VehicleEligibilityService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +17,13 @@ import java.util.List;
 public class VehicleController {
 
     private final VehicleCrudService service;
+    private final VehicleEligibilityService eligibilityService;
 
-    public VehicleController(VehicleCrudService service) {
+
+    public VehicleController(VehicleCrudService service,
+                             VehicleEligibilityService eligibilityService) {
         this.service = service;
+        this.eligibilityService = eligibilityService;
     }
 
     @PostMapping
@@ -54,4 +60,10 @@ public class VehicleController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}/eligibility")
+    public ResponseEntity<Boolean> isEligible(@PathVariable String id) {
+        return ResponseEntity.ok(eligibilityService.isEligible(id));
+    }
 }
+

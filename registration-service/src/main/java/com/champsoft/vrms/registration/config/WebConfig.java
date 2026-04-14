@@ -1,4 +1,4 @@
-package com.champsoft.vrms.agents.config;
+package com.champsoft.vrms.registration.config;
 
 
 import org.springframework.context.annotation.Configuration;

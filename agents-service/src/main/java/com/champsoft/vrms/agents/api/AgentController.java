@@ -3,6 +3,7 @@ package com.champsoft.vrms.agents.api;
 import com.champsoft.vrms.agents.api.dto.*;
 import com.champsoft.vrms.agents.api.mapper.AgentApiMapper;
 import com.champsoft.vrms.agents.application.service.AgentCrudService;
+import com.champsoft.vrms.agents.application.service.AgentEligibilityService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class AgentController {
 
     private final AgentCrudService service;
-    public AgentController(AgentCrudService service) { this.service = service; }
+    private final AgentEligibilityService eligibilityService;
+
+    public AgentController(AgentCrudService service,
+                           AgentEligibilityService eligibilityService) {
+        this.service = service;
+        this.eligibilityService = eligibilityService;
+    }
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid CreateAgentRequest req) {
@@ -44,5 +51,10 @@ public class AgentController {
     public ResponseEntity<?> delete(@PathVariable String id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/eligibility")
+    public ResponseEntity<Boolean> isEligible(@PathVariable String id) {
+        return ResponseEntity.ok(eligibilityService.isEligible(id));
     }
 }

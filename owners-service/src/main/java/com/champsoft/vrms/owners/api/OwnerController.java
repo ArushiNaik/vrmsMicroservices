@@ -3,6 +3,7 @@ package com.champsoft.vrms.owners.api;
 import com.champsoft.vrms.owners.api.dto.*;
 import com.champsoft.vrms.owners.api.mapper.OwnerApiMapper;
 import com.champsoft.vrms.owners.application.service.OwnerCrudService;
+import com.champsoft.vrms.owners.application.service.OwnerEligibilityService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class OwnerController {
 
     private final OwnerCrudService service;
-    public OwnerController(OwnerCrudService service) { this.service = service; }
+    private final OwnerEligibilityService eligibilityService;
+
+    public OwnerController(OwnerCrudService service,
+                           OwnerEligibilityService eligibilityService) {
+        this.service = service;
+        this.eligibilityService = eligibilityService;
+    }
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid CreateOwnerRequest req) {
@@ -50,5 +57,10 @@ public class OwnerController {
     public ResponseEntity<?> delete(@PathVariable String id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/eligibility")
+    public ResponseEntity<Boolean> isEligible(@PathVariable String id) {
+        return ResponseEntity.ok(eligibilityService.isEligible(id));
     }
 }
