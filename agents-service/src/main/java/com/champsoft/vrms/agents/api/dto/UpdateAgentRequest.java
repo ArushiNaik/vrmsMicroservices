@@ -1,6 +1,6 @@
 package com.champsoft.vrms.agents.api.dto;
 
-import com.champsoft.vrms.agents.domain.model.Role;
+import com.champsoft.vrms.agents.domain.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

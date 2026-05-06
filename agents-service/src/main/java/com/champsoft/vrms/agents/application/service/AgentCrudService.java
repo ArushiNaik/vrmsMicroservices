@@ -2,7 +2,9 @@ package com.champsoft.vrms.agents.application.service;
 
 import com.champsoft.vrms.agents.application.exception.*;
 import com.champsoft.vrms.agents.application.port.out.AgentRepositoryPort;
-import com.champsoft.vrms.agents.domain.model.*;
+import com.champsoft.vrms.agents.domain.Agent;
+import com.champsoft.vrms.agents.domain.AgentId;
+import com.champsoft.vrms.agents.domain.Role;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

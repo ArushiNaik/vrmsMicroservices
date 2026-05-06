@@ -1,6 +1,7 @@
 package com.champsoft.vrms.agents.api;
 
 import com.champsoft.vrms.agents.application.exception.*;
+import com.champsoft.vrms.agents.domain.Role;
 import com.champsoft.vrms.agents.domain.exception.*;
 import com.champsoft.vrms.agents.web.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,7 +44,7 @@ public class AgentExceptionHandler {
         Throwable current = ex;
         while (current != null) {
             if (current instanceof com.fasterxml.jackson.databind.exc.InvalidFormatException ife) {
-                if (ife.getTargetType() == com.champsoft.vrms.agents.domain.model.Role.class) {
+                if (ife.getTargetType() == Role.class) {
                     var bad = ife.getValue();
                     return "invalid role: " + (bad == null ? "<null>" : bad) + ". Allowed values: CLERK, SUPERVISOR";
                 }

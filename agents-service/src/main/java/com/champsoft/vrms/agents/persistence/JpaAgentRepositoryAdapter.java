@@ -1,7 +1,9 @@
 package com.champsoft.vrms.agents.persistence;
 
 import com.champsoft.vrms.agents.application.port.out.AgentRepositoryPort;
-import com.champsoft.vrms.agents.domain.model.*;
+import com.champsoft.vrms.agents.domain.Agent;
+import com.champsoft.vrms.agents.domain.AgentId;
+import com.champsoft.vrms.agents.domain.Role;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

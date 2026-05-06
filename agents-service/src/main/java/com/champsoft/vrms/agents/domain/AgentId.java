@@ -1,4 +1,4 @@
-package com.champsoft.vrms.agents.domain.model;
+package com.champsoft.vrms.agents.domain;
 
 import java.util.Objects;
 import java.util.UUID;

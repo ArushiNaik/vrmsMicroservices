@@ -2,7 +2,7 @@ package com.champsoft.vrms.agents.application.service;
 
 import com.champsoft.vrms.agents.application.exception.AgentNotFoundException;
 import com.champsoft.vrms.agents.application.port.out.AgentRepositoryPort;
-import com.champsoft.vrms.agents.domain.model.AgentId;
+import com.champsoft.vrms.agents.domain.AgentId;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
