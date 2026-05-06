@@ -1,4 +1,4 @@
-package com.champsoft.vrms.agents.domain.model;
+package com.champsoft.vrms.agents.domain;
 
 import com.champsoft.vrms.agents.domain.exception.InvalidAgentNameException;
 import com.champsoft.vrms.agents.domain.exception.InvalidRoleException;

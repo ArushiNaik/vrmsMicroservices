@@ -1,7 +1,7 @@
 package com.champsoft.vrms.agents.api.mapper;
 
 import com.champsoft.vrms.agents.api.dto.AgentResponse;
-import com.champsoft.vrms.agents.domain.model.Agent;
+import com.champsoft.vrms.agents.domain.Agent;
 
 public class AgentApiMapper {
     public static AgentResponse toResponse(Agent a) {

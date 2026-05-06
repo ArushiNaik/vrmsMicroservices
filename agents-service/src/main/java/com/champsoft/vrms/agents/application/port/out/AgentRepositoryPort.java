@@ -1,7 +1,7 @@
 package com.champsoft.vrms.agents.application.port.out;
 
-import com.champsoft.vrms.agents.domain.model.Agent;
-import com.champsoft.vrms.agents.domain.model.AgentId;
+import com.champsoft.vrms.agents.domain.Agent;
+import com.champsoft.vrms.agents.domain.AgentId;
 
 import java.util.List;
 import java.util.Optional;
